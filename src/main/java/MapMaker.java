@@ -12,11 +12,24 @@ public class MapMaker {
     }
 
 
-    public void mapMaker() {
+    public void mapMaker2() {
         for (String s : listCreator.getGroceryArraylist()) {
-            Grocery grocery = new Grocery();
             Pattern namePattern = Pattern.compile("name[^A-Z0-9](.*?);", Pattern.CASE_INSENSITIVE);
             Matcher matcher = namePattern.matcher(s);
+                while(matcher.find()) {
+                    for (int i = 0; i < listCreator.groceryMapList.size(); i++) {
+                        if (i == 0) {
+                            Grocery grocery = new Grocery();
+                            listCreator.groceryMapList.add(grocery.groceryMap);
+                            listCreator.groceryMapList.get(i).get("Name").add(matcher.group(1));
+                        }
+
+//                        else if (matcher.group().equals(listCreator.groceryMapList.get(i).get("Name").get(0))) {
+//                            listCreator.groceryMapList.get(i).get("Name").add(matcher.group(1));
+//                        }
+                    }
+                }
+            Grocery grocery = new Grocery();
             while(matcher.find()) {
                 grocery.groceryMap.get("Name").add(matcher.group(1));
             }
@@ -26,6 +39,26 @@ public class MapMaker {
                 grocery.groceryMap.get("Price").add(priceMatcher.group(1));
             }
             listCreator.groceryMapList.add(grocery.groceryMap);
+        }
+    }
+
+    public void mapMaker() {
+        for (int i = 0; i < listCreator.groceryArraylist.size(); i++) {
+            Pattern namePattern = Pattern.compile("name[^A-Z0-9](.*?);", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = namePattern.matcher(listCreator.groceryArraylist.get(i));
+            Pattern pricePattern = Pattern.compile("price[^A-Z0-9]([0-9]*?\\.[0-9][0-9])");
+            Matcher priceMatcher = pricePattern.matcher(listCreator.getGroceryArraylist().get(i));
+                while(matcher.find() && priceMatcher.find()) {
+                    if (listCreator.groceryMapList.isEmpty()) {
+                        Grocery grocery = new Grocery();
+                        grocery.groceryMap.get("Name").add(matcher.group(1));
+                        grocery.groceryMap.get("Price").add(priceMatcher.group(1));
+                        listCreator.groceryMapList.add(grocery.groceryMap);
+                    } else {
+                        //catches if list of maps is NOT empty
+
+                    }
+                }
         }
     }
 }
