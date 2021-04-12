@@ -46,7 +46,7 @@ public class MapMaker {
         for (int i = 0; i < listCreator.groceryArraylist.size(); i++) {
             Pattern namePattern = Pattern.compile("name[^A-Z0-9](.*?);", Pattern.CASE_INSENSITIVE);
             Matcher matcher = namePattern.matcher(listCreator.groceryArraylist.get(i));
-            Pattern pricePattern = Pattern.compile("price[^A-Z0-9]([0-9]*?\\.[0-9][0-9])");
+            Pattern pricePattern = Pattern.compile("price[^A-Z0-9]([0-9]*?\\.[0-9][0-9])", Pattern.CASE_INSENSITIVE);
             Matcher priceMatcher = pricePattern.matcher(listCreator.getGroceryArraylist().get(i));
                 while(matcher.find() && priceMatcher.find()) {
                     if (listCreator.groceryMapList.isEmpty()) {
