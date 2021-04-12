@@ -1,4 +1,6 @@
 import org.apache.commons.io.IOUtils;
+
+import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
 
 public class Main {
@@ -9,9 +11,13 @@ public class Main {
         return result;
     }
 
+
+
     public static void main(String[] args) throws Exception{
+        Counters counters = new Counters();
         String output = (new Main()).readRawDataToString();
-        System.out.println(output);
+        counters.rackEmUp(output);
+        System.out.println(counters.tablePrintOut());
 
     }
 }
