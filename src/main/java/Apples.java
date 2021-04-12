@@ -22,7 +22,7 @@ public class Apples implements Groceries{
     }
 
     public void countPriceOne(String rawData) {
-        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]apples;price[^A-Za-z0-9]0.25", Pattern.CASE_INSENSITIVE);
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]apples;price[^A-Za-z0-9]0\\.25", Pattern.CASE_INSENSITIVE);
         Matcher priceMatcher = pricePattern.matcher(rawData);
         while (priceMatcher.find()) {
             priceCountOne++;
@@ -36,7 +36,7 @@ public class Apples implements Groceries{
     }
 
     public void countPriceTwo(String rawData) {
-        Pattern pricePattern = Pattern.compile("name:apples;price:0.23", Pattern.CASE_INSENSITIVE);
+        Pattern pricePattern = Pattern.compile("name:apples;price:0\\.23", Pattern.CASE_INSENSITIVE);
         Matcher priceMatcher = pricePattern.matcher(rawData);
         while (priceMatcher.find()) {
             priceCountTwo++;
