@@ -2,6 +2,7 @@ import org.apache.commons.io.IOUtils;
 
 import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
 
@@ -14,10 +15,17 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception{
-        Counters counters = new Counters();
         String output = (new Main()).readRawDataToString();
-        counters.rackEmUp(output);
-        System.out.println(counters.tablePrintOut());
+        ListCreator listCreator = new ListCreator(output);
+        MapMaker mapMaker = new MapMaker();
+        listCreator.groceryMaker(output);
+        mapMaker.mapMaker();
+        listCreator.makeNamesList();
+//        listCreator.distinctNames();
+        System.out.println(listCreator.groceryArraylist);
+        System.out.println(listCreator.namesList);
+        System.out.println(mapMaker.listCreator.groceryMapList);
+        //System.out.println(output);
 
     }
 }
