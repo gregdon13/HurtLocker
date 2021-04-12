@@ -12,7 +12,7 @@ public class Counters {
         milk.countPriceOne(rawData);
         milk.countPriceTwo(rawData);
         apples.countName(rawData);
-        apples.countPriceTwo(rawData);
+        apples.countPriceOne(rawData);
         apples.countPriceTwo(rawData);
         cookies.countName(rawData);
         cookies.countPriceOne(rawData);

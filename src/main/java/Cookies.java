@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Cookies implements Groceries{
     int nameCount;
     int priceCount;
@@ -8,11 +11,19 @@ public class Cookies implements Groceries{
     }
 
     public void countName(String rawData) {
-
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[o|0][0|o]kies", Pattern.CASE_INSENSITIVE);
+        Matcher priceMatcher = pricePattern.matcher(rawData);
+        while (priceMatcher.find()) {
+            nameCount++;
+        }
     }
 
     public void countPriceOne(String rawData) {
-
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[o|0][0|o]kies;price[^A-Za-z0-9]2.25", Pattern.CASE_INSENSITIVE);
+        Matcher priceMatcher = pricePattern.matcher(rawData);
+        while (priceMatcher.find()) {
+            priceCount++;
+        }
     }
 
     public String printNice() {

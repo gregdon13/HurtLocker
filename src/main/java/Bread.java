@@ -13,7 +13,7 @@ public class Bread implements Groceries{
     }
 
     public void countName(String rawData) {
-        Pattern nameMatch = Pattern.compile("name:bread", Pattern.CASE_INSENSITIVE);
+        Pattern nameMatch = Pattern.compile("name[^A-Za-z0-9]bread", Pattern.CASE_INSENSITIVE);
         Matcher nameMatcher = nameMatch.matcher(rawData);
         while (nameMatcher.find()) {
             nameCount++;
@@ -21,7 +21,7 @@ public class Bread implements Groceries{
     }
 
     public void countPriceOne(String rawData) {
-        Pattern pricePattern = Pattern.compile("price:1.23", Pattern.CASE_INSENSITIVE);
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]bread;price[^A-Za-z0-9]1.23", Pattern.CASE_INSENSITIVE);
         Matcher priceMatcher = pricePattern.matcher(rawData);
         while (priceMatcher.find()) {
             priceCount++;
