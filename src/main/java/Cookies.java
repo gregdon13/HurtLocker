@@ -11,7 +11,7 @@ public class Cookies implements Groceries{
     }
 
     public void countName(String rawData) {
-        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[o|0][0|o]kies", Pattern.CASE_INSENSITIVE);
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[0|O][0|O]kies", Pattern.CASE_INSENSITIVE);
         Matcher priceMatcher = pricePattern.matcher(rawData);
         while (priceMatcher.find()) {
             nameCount++;
@@ -19,7 +19,7 @@ public class Cookies implements Groceries{
     }
 
     public void countPriceOne(String rawData) {
-        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[o|0][0|o]kies;price[^A-Za-z0-9]2.25", Pattern.CASE_INSENSITIVE);
+        Pattern pricePattern = Pattern.compile("name[^A-Za-z0-9]c[o|0|O][0|o|O]kies;price[^A-Za-z0-9]2.25", Pattern.CASE_INSENSITIVE);
         Matcher priceMatcher = pricePattern.matcher(rawData);
         while (priceMatcher.find()) {
             priceCount++;
