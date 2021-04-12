@@ -16,6 +16,7 @@ public class Counters {
         apples.countPriceTwo(rawData);
         cookies.countName(rawData);
         cookies.countPriceOne(rawData);
+        errors.errorCount(rawData);
     }
 
     public String tablePrintOut() {
