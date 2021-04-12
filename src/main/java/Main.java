@@ -18,13 +18,16 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         ListCreator listCreator = new ListCreator(output);
         MapMaker mapMaker = new MapMaker();
+        Counter counter = new Counter();
         listCreator.groceryMaker(output);
         mapMaker.mapMaker();
+        counter.countInstances();
         listCreator.makeNamesList();
 //        listCreator.distinctNames();
-        System.out.println(listCreator.groceryArraylist);
+        //System.out.println(listCreator.groceryArraylist);
         //System.out.println(listCreator.namesList);
-        System.out.println(mapMaker.listCreator.groceryMapList);
+        //System.out.println(mapMaker.listCreator.groceryMapList);
+        System.out.println(counter.output);
         //System.out.println(output);
 
     }
