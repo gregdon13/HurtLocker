@@ -54,7 +54,7 @@ public class Counter {
 
     public int countErrors() throws Exception {
         int errorCounter = 0;
-        Pattern errorPattern = Pattern.compile(":;");
+        Pattern errorPattern = Pattern.compile("[^a-zA-Z0-9];");
         Matcher errorMatcher = errorPattern.matcher(mapMaker.main.readRawDataToString());
         while(errorMatcher.find()) {
             errorCounter++;
