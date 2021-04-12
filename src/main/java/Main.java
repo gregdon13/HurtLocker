@@ -22,7 +22,7 @@ public class Main {
         listCreator.groceryMaker(output);
         mapMaker.mapMaker();
         counter.countInstances();
-        listCreator.makeNamesList();
+        //listCreator.makeNamesList();
 //        listCreator.distinctNames();
         //System.out.println(listCreator.groceryArraylist);
         //System.out.println(listCreator.namesList);

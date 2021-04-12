@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Counter {
     String output = "";
@@ -8,7 +10,7 @@ public class Counter {
     public Counter() throws Exception {
     }
 
-    public void countInstances() {
+    public void countInstances() throws Exception {
         for (LinkedHashMap<String, ArrayList<String>> l : mapMaker.listCreator.groceryMapList) {
             int nameCount = 0;
             String name = l.get("Name").get(0).toLowerCase();
@@ -47,5 +49,16 @@ public class Counter {
                         + "Price: " + priceTwo + "  seen: " + priceCountTwo + " times\n\n";
             }
         }
+        output += "Errors       seen: " + countErrors() + " times";
+    }
+
+    public int countErrors() throws Exception {
+        int errorCounter = 0;
+        Pattern errorPattern = Pattern.compile(":;");
+        Matcher errorMatcher = errorPattern.matcher(mapMaker.main.readRawDataToString());
+        while(errorMatcher.find()) {
+            errorCounter++;
+        }
+        return errorCounter;
     }
 }
