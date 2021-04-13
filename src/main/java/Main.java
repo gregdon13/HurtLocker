@@ -20,8 +20,8 @@ public class Main {
         Counter counter = new Counter();
         listCreator.groceryMaker(output);
         counter.countInstances();
-        System.out.println(listCreator.groceryArraylist);
-        System.out.println(counter.mapMaker.listCreator.groceryMapList);
+//        System.out.println(listCreator.groceryArraylist);
+//        System.out.println(counter.mapMaker.listCreator.groceryMapList);
         System.out.println(counter.output);
     }
 }
