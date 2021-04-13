@@ -20,7 +20,7 @@ public class Counter {
             } else {
                 break;
             }
-            String priceOne = l.get("Price").get(0).toLowerCase();
+            String priceOne = l.get("Price").get(0);
             String priceTwo = "";
             int priceCountOne = 0;
             int priceCountTwo = 0;
@@ -39,7 +39,7 @@ public class Counter {
             }
             if (priceTwo.equals("")) {
                 output += "Name: " + name1 + "   seen: " + nameCount + " times\n"
-                        + "=========================\n" + "Price: " + "   seen: " + priceCountOne + " times\n"
+                        + "=========================\n" + "Price: " + priceOne + "   seen: " + priceCountOne + " times\n"
                         + "-------------------------\n\n";
             } else {
                 //catches when there is a price two

@@ -24,7 +24,7 @@ public class Main {
         counter.countInstances();
         //listCreator.makeNamesList();
 //        listCreator.distinctNames();
-        //System.out.println(listCreator.groceryArraylist);
+        System.out.println(listCreator.groceryArraylist);
         //System.out.println(listCreator.namesList);
         //System.out.println(mapMaker.listCreator.groceryMapList);
         System.out.println(counter.output);
