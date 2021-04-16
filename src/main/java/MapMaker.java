@@ -19,30 +19,36 @@ public class MapMaker {
             Matcher priceMatcher = pricePattern.matcher(listCreator.getGroceryArraylist().get(i));
                 while(matcher.find() && priceMatcher.find()) {
                     if (listCreator.groceryMapList.isEmpty()) {
-                        Grocery grocery = new Grocery();
-                        grocery.groceryMap.get("Name").add(matcher.group(1));
-                        grocery.groceryMap.get("Price").add(priceMatcher.group(1));
-                        listCreator.groceryMapList.add(grocery.groceryMap);
+                        addToEmptyMap(matcher, priceMatcher);
                     } else {
                         //catches if list of maps is NOT empty
-                        boolean addAGrocery = true;
-                        for (int j = 0; j < listCreator.groceryMapList.size(); j++) {
-                            //I did do a string method here. I know. But wasn't sure how else to make this so general
-                            String result = matcher.group(1).replaceAll("\\B0|0\\B", "o");
-                            if (result.equalsIgnoreCase(listCreator.groceryMapList.get(j).get("Name").get(0))) {
-                                listCreator.groceryMapList.get(j).get("Name").add(matcher.group(1));
-                                listCreator.groceryMapList.get(j).get("Price").add(priceMatcher.group(1));
-                                addAGrocery = false;
-                            }
-                        }
-                        if (addAGrocery) {
-                            Grocery grocery = new Grocery();
-                            grocery.groceryMap.get("Name").add(matcher.group(1));
-                            grocery.groceryMap.get("Price").add(priceMatcher.group(1));
-                            listCreator.groceryMapList.add(grocery.groceryMap);
-                        }
+                        addToExistingMap(matcher, priceMatcher);
                     }
                 }
         }
     }
+
+    public void addToEmptyMap(Matcher matcher, Matcher priceMatcher) {
+        Grocery grocery = new Grocery();
+        grocery.groceryMap.get("Name").add(matcher.group(1));
+        grocery.groceryMap.get("Price").add(priceMatcher.group(1));
+        listCreator.groceryMapList.add(grocery.groceryMap);
+    }
+
+    public void addToExistingMap(Matcher matcher, Matcher priceMatcher) {
+        boolean addAGrocery = true;
+        for (int j = 0; j < listCreator.groceryMapList.size(); j++) {
+            //I did do a string method here. I know. But wasn't sure how else to make this so general
+            String result = matcher.group(1).replaceAll("\\B0|0\\B", "o");
+            if (result.equalsIgnoreCase(listCreator.groceryMapList.get(j).get("Name").get(0))) {
+                listCreator.groceryMapList.get(j).get("Name").add(matcher.group(1));
+                listCreator.groceryMapList.get(j).get("Price").add(priceMatcher.group(1));
+                addAGrocery = false;
+            }
+        }
+        if (addAGrocery) {
+            addToEmptyMap(matcher, priceMatcher);
+        }
+    }
+
 }
