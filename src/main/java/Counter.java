@@ -37,19 +37,23 @@ public class Counter {
                     priceCountTwo++;
                 }
             }
-            if (priceTwo.equals("")) {
-                output += "Name: " + name1 + "   seen: " + nameCount + " times\n"
-                        + "=========================\n" + "Price: " + priceOne + "   seen: " + priceCountOne + " times\n"
-                        + "-------------------------\n\n";
-            } else {
-                //catches when there is a price two
-                output += "Name: " + name1 + "   seen: " + nameCount + " times\n"
-                        + "=========================\n" + "Price: " + priceOne + "   seen: " + priceCountOne + " times\n"
-                        + "-------------------------\n"
-                        + "Price: " + priceTwo + "  seen: " + priceCountTwo + " times\n\n";
-            }
+            addToOutput(priceTwo, name1, priceOne, nameCount, priceCountOne, priceCountTwo);
         }
         output += "Errors       seen: " + countErrors() + " times";
+    }
+
+    public void addToOutput(String priceTwo, String name1, String priceOne, int nameCount, int priceCountOne, int priceCountTwo) throws Exception {
+        if (priceTwo.equals("")) {
+            output += "Name: " + name1 + "   seen: " + nameCount + " times\n"
+                    + "=========================\n" + "Price: " + priceOne + "   seen: " + priceCountOne + " times\n"
+                    + "-------------------------\n\n";
+        } else {
+            //catches when there is a price two
+            output += "Name: " + name1 + "   seen: " + nameCount + " times\n"
+                    + "=========================\n" + "Price: " + priceOne + "   seen: " + priceCountOne + " times\n"
+                    + "-------------------------\n"
+                    + "Price: " + priceTwo + "  seen: " + priceCountTwo + " times\n\n";
+        }
     }
 
     public int countErrors() throws Exception {

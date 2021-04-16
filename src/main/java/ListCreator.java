@@ -20,13 +20,4 @@ public class ListCreator {
             groceryArraylist.add(matcher.group());
         }
     }
-
-    public void groceryMaker(String rawData) {
-        groceryArraylist = new ArrayList<String>();
-        Pattern groceryPattern = Pattern.compile("name(.*?)##", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = groceryPattern.matcher(rawData);
-        while (matcher.find()){
-            groceryArraylist.add(matcher.group());
-        }
-    }
 }

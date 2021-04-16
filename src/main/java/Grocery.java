@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class Grocery {
-    String name;
-    String price;
     LinkedHashMap<String, ArrayList<String>> groceryMap = new LinkedHashMap<String, ArrayList<String>>();
 
     public Grocery(){
